@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Game from './pages/Game';
 import Admin from './pages/Admin';
 
-const socket = io.connect('http://localhost:4000');
+const socket = io.connect('https://crescendo-race-socket.onrender.com');
 
 function App() {
   const [username, setUsername] = useState('');
