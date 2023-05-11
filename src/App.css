@@ -1,0 +1,296 @@
+body {
+  overflow: hidden;
+}
+
+.users ul {
+  padding: 0;
+  margin: 0;
+}
+.users ul li{
+  list-style: none;
+}
+
+.road {
+  overflow: hidden;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 711px;
+  height: 650px;
+  background-image: url(../src/assets/road.png);
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 650px;
+  }
+}
+
+@keyframes animatedObstacle {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 952px;
+  }
+}
+
+.instructions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 15%;
+  margin: auto;
+  width: 487px;
+  height: 224px;
+  background-image: url(../src/assets/instructions.png);
+}
+.distance {
+  color: #fff;
+  font-size: 19px;
+  font-weight: bold;
+  text-transform: capitalize;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-family: monospace;
+}
+.adminMessage {
+  font-size: 45px;
+  font-weight: bold;
+  color: #98e169;
+  text-shadow: -5px 4px black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+  margin: auto;
+  text-align: center;
+  font-family: monospace;
+  padding: 0px 20%;
+  text-transform: uppercase;
+}
+.player {
+  position: absolute;
+  bottom: 10px;
+  width: 73px;
+  height: 146px;
+  background-image: url(../src/assets/player.png);
+}
+.player.crashed:before {
+  content: '';
+  position: absolute;
+  top: -142px;
+  left: -78px;
+  width: 200px;
+  height: 200px;
+  background-image: url(../src/assets/explosion.gif);
+  z-index: 2;
+}
+.car {
+  transition: left .5s ease-in-out;
+  -webkit-transition: left .5s ease-in-out;
+}
+.car.left {
+  left: 194px;
+}
+.car.middle {
+  left: 319px;
+}
+.car.right {
+  left: 447px;
+}
+.lane {
+  position: absolute;
+  bottom: -141px;
+  width: 75px;
+  height: 952px;
+}
+.lane.tempBorder {
+  border: 1px solid red;
+}
+.lane.left {
+  left: 191px;
+}
+.lane.middle {
+  left: 317px;
+}
+.lane.right {
+  left: 444px;
+}
+.lane.blue {
+  background-image: url(../src/assets/blue.png);
+  background-repeat: no-repeat;
+  background-position: top 0;
+}
+.lane.green {
+  background-image: url(../src/assets/green.png);
+  background-repeat: no-repeat;
+  background-position: top 0;
+}
+.lane.yellow {
+  background-image: url(../src/assets/yellow.png);
+  background-repeat: no-repeat;
+  background-position: top 0;
+}
+.lane.white {
+  background-image: url(../src/assets/white.png);
+  background-repeat: no-repeat;
+  background-position: top 0;
+}
+.road.paused,
+.road.paused .lane  {
+  animation-play-state: paused !important;
+}
+
+.home {
+  text-align: center;
+}
+.home input {
+  display: block;
+  font-size: 30px;  
+  margin: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.home button {
+  display: block;
+  margin: auto;
+  font-size: 30px;  
+  background-color: green;
+  color: #fff;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.home,
+.admin .players {
+  color: #fff;
+  overflow: hidden;
+  position: absolute;
+  margin: auto;
+  padding: 125px 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 711px;
+  background-color: #000;
+}
+.home:before,
+.admin .players:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 102px;
+  background-image: url(../src/assets/admin-banner-top.png);
+  background-repeat: no-repeat;
+}
+.home:after,
+.admin .players:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 102px;
+  background-image: url(../src/assets/admin-banner-bottom.png);
+  background-repeat: no-repeat;
+}
+.admin .players h2 {
+  font-size: 30px;
+  text-align: center;
+}
+.admin .players .users {
+  text-align: center;
+}
+.admin .players .users table {
+  margin: auto;
+  width: 630px;
+  font-size: 20px;
+  text-align: left;
+}
+.admin .players .users table .users-no {
+  width: 70px;
+  font-weight: bold;
+  text-align: center;
+}
+.admin .players .users table .users-distance {
+  width: 120px;
+  text-align: right;
+}
+.admin .players .users table .users-time {
+  width: 120px;
+  text-align: right;
+}
+.admin .players .users table .users-username span {
+  font-size: 13px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.admin .players .users table .users-username .playing {
+  background-color: green
+}
+.admin .players .users table .users-username .gameover {
+  background-color: red;
+}
+.admin .players .users table .users-username .waiting {
+  background-color: gray;
+}
+.admin .players .users table .users-username .finished {
+  background-color: blue;
+}
+.admin .players .users table thead td {
+  color: gray;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 17px;
+}
+
+.mobile-buttons {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: space-between;
+  width: 216px;
+  margin: auto;
+}
+.mobile-buttons .left {
+  width: 70px;
+  height: 70px;
+  background-image: url(../src/assets/left.png);
+}
+
+.mobile-buttons .right {
+  width: 70px;
+  height: 70px;
+  background-image: url(../src/assets/right.png);
+}
+@media only screen and (max-width: 640px){
+  .mobile-buttons {
+    display: flex;
+  }
+}
+
+.hide {
+  display: none;
+}
